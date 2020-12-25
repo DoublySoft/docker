@@ -4,7 +4,8 @@
 ## Docker build
 
 Montar imagen de Docker:
-- `--tag <tag:version>` Nombre que se le da a la imagen.
+- `-t --tag <tag:version>` Nombre que se le da a la imagen.
+- `-f --file <dockerfile_name>` Asignar el fichero de carga de imagen distingo a `Dockerfile`.
 - `.` Ruta en la que se encuentra el fichero Dockerfile.
 ```
 docker build --tag <tag:version> .
