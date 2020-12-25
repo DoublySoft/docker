@@ -13,4 +13,11 @@ RUN echo "<?php phpinfo(); ?>" > /var/www/html/hola.php
 
 COPY public_html /var/www/html
 
+COPY ssl.conf /etc/httpd/conf.d/default.conf
+
+COPY docker.crt /docker.crt
+COPY docker.key /docker.key
+
+EXPOSE 443
+
 CMD apachectl -DFOREGROUND
