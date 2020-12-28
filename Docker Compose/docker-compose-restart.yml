@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+
+  build-image:
+    image: restart
+    container_name: restart
+    build: 
+      context: ./restart
+      dockerfile: Dockerfile-restart
+    # restart: always
+    # restart: unless-stopped
+    restart: on-failure

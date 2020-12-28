@@ -1,0 +1,9 @@
+version: "3.8"
+
+services:
+
+  centos:
+    image: centos:7
+    command: python -m SimpleHTTPServer 8080
+    ports: 
+      - 8080:8080

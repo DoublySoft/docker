@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+
+  build-image:
+    image: build
+    container_name: build
+    build: 
+      context: ./build
+      dockerfile: Dockerfile-centos
+    ports: 
+      - 8080:8080

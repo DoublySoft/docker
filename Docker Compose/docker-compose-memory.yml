@@ -1,0 +1,9 @@
+version: "3.8"
+
+services: 
+
+  web:
+    image: nginx:alpine
+    container_name: nginx
+    mem_limit: 50m
+    cpuset: "0"

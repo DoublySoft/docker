@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+
+  web:
+    image: nginx
+    container_name: nginx
+    ports: 
+    - 80:80
+    volumes: 
+      - ./public_html:/usr/share/nginx/html
+    networks: 
+      - newtwork-test
+
+  db:
+    image: mysql
+    container_name: mysql
+    ports: 
+      - 3306:3306
+    env_file: .env
+    networks: 
+      - newtwork-test
+
+networks:
+  newtwork-test:
