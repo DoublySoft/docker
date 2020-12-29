@@ -1,0 +1,31 @@
+version: '3.1'
+
+services: 
+
+  drupal:
+    image: drupal:9
+    container_name: drupal-web
+    ports: 
+      - 8080:80
+    volumes: 
+      - drupal:/var/www/html
+    restart: always
+    networks: 
+      - drupal-network
+
+  postgres:
+    image: postgres:10
+    container_name: drupal-db
+    environment:
+      POSTGRES_PASSWORD: example
+    restart: always
+    volumes: 
+      - ./data:/var/lib/postgresql/data
+    networks: 
+      - drupal-network
+
+volumes: 
+  drupal:
+
+networks: 
+  drupal-network:
