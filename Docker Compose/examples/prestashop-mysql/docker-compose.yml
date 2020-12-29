@@ -1,0 +1,38 @@
+version: '3.8'
+
+services: 
+
+  db:
+    image: mysql:5.7
+    container_name: ps-db
+    volumes: 
+      - ./data:/var/lib/mysql
+    environment: 
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ps
+      MYSQL_USER: ps
+      MYSQL_PASSWORD: ps
+    ports: 
+      - 3306:3306
+    networks: 
+      - ps-network
+  
+  ps:
+    image: prestashop/prestashop
+    container_name: ps-web
+    volumes: 
+      - ./public_html:/var/www/html
+    depends_on: 
+      - db
+    ports: 
+      - 80:80
+    environment: 
+      DB_SERVER: db
+      DB_USER: ps
+      DB_PASSWD: ps
+      DB_NAME: ps
+    networks: 
+      - ps-network
+
+networks: 
+  ps-network:
